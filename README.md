@@ -20,7 +20,6 @@ The default document corpus in this repo is a chunked JSON derived from UAS regu
 - [Backend API](#backend-api)
 - [Rebuilding the FAISS index](#rebuilding-the-faiss-index)
 - [Local development (without Docker)](#local-development-without-docker)
-- [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -368,32 +367,6 @@ npm install
 set BACKEND_URL=http://localhost:8080
 npm start
 ```
-
----
-
-## Troubleshooting
-
-### Backend says: “Index directory not found”
-
-The chat endpoint requires `PreProcessing/ProcessedFiles/index/` to exist and contain `faiss.index` + `docs.json`.
-- Rebuild the index (see [Rebuilding the FAISS index](#rebuilding-the-faiss-index))
-- Or restore the `PreProcessing/ProcessedFiles/index/` folder
-
-### Backend cannot reach the LLM
-
-- If using Docker Compose, the backend calls `host.docker.internal:11434`.
-  - Ensure Ollama is running on the host and listening on port `11434`.
-- If running locally (no Docker), set `LLM_BASE_URL=http://localhost:11434/v1`.
-
-### `config.yml` seems ignored
-
-`server.py` loads YAML only if `PyYAML` is installed. Install `pyyaml` or add it to the Docker image.
-
-### Streaming doesn’t work
-
-The streaming endpoint uses SSE. If you’re calling it from a client:
-- do not buffer the response
-- ensure proxies (if any) do not disable streaming
 
 ---
 
