@@ -1,0 +1,2 @@
+# retrieval-augmented-language-assistant-for-uav-safety-assessment-and-compliance
+A retrieval augmented language assistant for UAV safety assessment and regulatory compliance. The system grounds all outputs in authoritative documents such as SORA and PDRA, enabling traceable answers, structured indicator generation, and conservative, reviewable support for certification and authorization workflows.
