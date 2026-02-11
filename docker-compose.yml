@@ -1,0 +1,38 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    environment:
+      DATABASE_URL: postgresql+psycopg2://chatbot:chatbot@db:5432/chatbot
+      LLM_BASE_URL: "http://host.docker.internal:11434/v1"
+      LLM_API_KEY: "ollama"
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+              
+
+  db:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: chatbot
+      POSTGRES_USER: chatbot
+      POSTGRES_PASSWORD: chatbot
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web-gui:
+    build:
+      context: ./Web-GUI
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      BACKEND_URL: http://app:8080
+    depends_on:
+      - app
+
+volumes:
+  pgdata:

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYSAFE Chatbot</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="brand">
+                    <h1>SKYSAFE Assistant</h1>
+                    <p class="subtitle">Your AI-powered assistant</p>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="menu-panel" id="menu-panel">
+                    <button class="menu-item" id="menu-home">Home</button>
+                    <button class="menu-item" id="menu-chat">Chat</button>
+                    <button class="menu-item" id="menu-classification">Classification</button>
+                </div>
+            </div>
+
+            <div class="user-bar">
+                <div class="user-field">
+                    <label for="user-id-input">User ID</label>
+                    <input id="user-id-input" type="text" placeholder="user123" autocomplete="off">
+                </div>
+                <div class="user-field">
+                    <label for="user-name-input">User Name</label>
+                    <input id="user-name-input" type="text" placeholder="Guest" autocomplete="off">
+                </div>
+                <button id="load-history-btn" class="ghost-button">Load history</button>
+                <button id="clear-chat-btn" class="ghost-button danger">Clear chat</button>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="chat-container">
+                <div id="chat-history" class="chat-history">
+                    <div class="welcome-message">
+                        <h2>Welcome to SKYSAFE Assistant</h2>
+                        <p>Ask me anything about SORA/PDRA and its safety features.</p>
+                    </div>
+                </div>
+
+                <div id="loading-indicator" class="loading-indicator hidden">
+                    <div class="spinner"></div>
+                    <p>Thinking (this may take a while)...</p>
+                </div>
+
+                <div class="chat-input-area">
+                    <form id="chat-form" class="chat-form">
+                        <input
+                            type="text"
+                            id="user-input"
+                            class="user-input"
+                            placeholder="Type your question..."
+                            autocomplete="off"
+                            required
+                        />
+                        <button type="button" class="settings-button" id="settings-btn" aria-label="Settings">
+                            ⚙️
+                        </button>
+                        <button type="button" class="stop-button hidden" id="stop-btn">Stop</button>
+                        <button type="submit" class="send-button" id="send-btn">
+                            <span>Send</span>
+                        </button>
+                    </form>
+
+                    <!-- Settings Panel -->
+                    <div id="settings-panel" class="settings-panel hidden">
+                        <div class="settings-header">
+                            <span>Chat Settings</span>
+                            <button type="button" id="settings-close" class="settings-close">&times;</button>
+                        </div>
+                        <div class="settings-body">
+                            <div class="setting-item">
+                                <label for="preprocess-toggle">Query Preprocessing</label>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" id="preprocess-toggle" />
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label for="reasoning-effort">Reasoning Effort</label>
+                                <select id="reasoning-effort">
+                                    <option value="none">None</option>
+                                    <option value="low">Low</option>
+                                    <option value="medium" selected>Medium</option>
+                                    <option value="high">High</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <aside class="sidebar">
+                <div class="sidebar-content">
+                    <h3>Sources</h3>
+                    <div id="sources-container" class="sources-container">
+                        <p class="placeholder-text">Sources will appear here</p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+    <script src="/js/chatbot.js"></script>
+</body>
+</html>

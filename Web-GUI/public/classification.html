@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SKYSAFE Classification</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="brand">
+                    <h1>SKYSAFE Indicators</h1>
+                    <p class="subtitle">Initial operation indicators</p>
+                </div>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Menu">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="menu-panel" id="menu-panel">
+                    <button class="menu-item" id="menu-home">Home</button>
+                    <button class="menu-item" id="menu-chat">Chat</button>
+                    <button class="menu-item" id="menu-classification">Classification</button>
+                </div>
+            </div>
+
+            <div class="user-bar">
+                <div class="user-field">
+                    <label for="cls-user-id">User ID</label>
+                    <input id="cls-user-id" type="text" placeholder="user123" autocomplete="off">
+                </div>
+                <div class="user-field">
+                    <label for="cls-user-name">User Name</label>
+                    <input id="cls-user-name" type="text" placeholder="Guest" autocomplete="off">
+                </div>
+                <button id="cls-run-btn" class="primary-button">Run indicators</button>
+            </div>
+        </header>
+
+        <main class="classification-main-3col">
+            <section class="card">
+                <h2 style="margin-bottom: 0.75rem; color: #667eea;">Operation Inputs</h2>
+                <div class="form-grid">
+                    <div class="form-field">
+                        <label for="mass">Maximum takeoff mass</label>
+                        <select id="mass">
+                            <option value="lt_25kg">&lt;= 25 kg</option>
+                            <option value="gte_25kg">&gt;= 25 kg</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="vlos">VLOS or BVLOS</label>
+                        <select id="vlos">
+                            <option value="VLOS">VLOS (Visual Line of Sight)</option>
+                            <option value="BVLOS">BVLOS (Beyond Visual Line of Sight)</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="ground">Ground environment</label>
+                        <select id="ground">
+                            <option value="controlled_area">Controlled area</option>
+                            <option value="sparsely_populated">Sparsely populated</option>
+                            <option value="populated">Populated</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="airspace">Airspace type</label>
+                        <select id="airspace">
+                            <option value="controlled">Controlled airspace</option>
+                            <option value="uncontrolled">Uncontrolled airspace</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="altitude">Maximum altitude</label>
+                        <select id="altitude">
+                            <option value="le_50m">&lt;= 50 m</option>
+                            <option value="gt_50m_le_120m">50-120 m</option>
+                            <option value="gt_120m_le_150m">120-150 m</option>
+                            <option value="gt_150m">&gt; 150 m</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="actions-row">
+                    <button id="cls-run-btn-2" class="primary-button">Run indicators</button>
+                    <button id="cls-reset-btn" class="ghost-button">Reset inputs</button>
+                </div>
+            </section>
+
+            <section class="card" style="display:flex; flex-direction:column; gap:0.75rem;">
+                <div>
+                    <h2 style="color:#667eea; margin-bottom:0.5rem;">Indicator Results</h2>
+                    <div class="loading-indicator hidden" id="cls-loading">
+                        <div class="spinner"></div>
+                        <p>Evaluating indicators...</p>
+                        <button type="button" class="stop-button" id="cls-stop-btn">Stop</button>
+                    </div>
+                    <div id="indicator-results" class="indicator-results">
+                        <p class="placeholder-text">Run the indicators to see results.</p>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="sidebar cls-sidebar">
+                <div class="sidebar-content">
+                    <h3>Sources</h3>
+                    <div id="cls-sources" class="sources-container">
+                        <p class="placeholder-text">Sources will appear here</p>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.6/dist/purify.min.js"></script>
+    <script src="/js/classification.js"></script>
+</body>
+</html>

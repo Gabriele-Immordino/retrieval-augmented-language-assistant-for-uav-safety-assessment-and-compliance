@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Loading">
+	<path d="M11.38 12L6.33 3.25C9.02 1.24 12.33 0 16 0c.75 0 1.49.05 2.22.15L11.38 12Z" fill="currentColor" opacity="0.9"/>
+	<path d="M10.23 18H1.24C1.08 17.36 1 16.69 1 16c0-2.7.86-5.2 2.34-7.25L10.23 18Z" fill="currentColor" opacity="0.65"/>
+	<path d="M9.79 30.75C5.88 29.12 2.82 25.99 1.16 22h12.52l-3.89 8.75Z" fill="currentColor" opacity="0.5"/>
+	<path d="M16 32c-.75 0-1.49-.05-2.22-.15L20.62 20l5.05 8.75C22.98 30.76 19.67 32 16 32Z" fill="currentColor" opacity="0.35"/>
+	<path d="M31 16c0 2.7-.86 5.2-2.34 7.25L21.77 14h9c.16.64.23 1.31.23 2Z" fill="currentColor" opacity="0.25"/>
+	<path d="M22.21 1.25C26.12 2.88 29.18 6.01 30.84 10h-12.5l3.87-8.75Z" fill="currentColor" opacity="0.8"/>
+</svg>

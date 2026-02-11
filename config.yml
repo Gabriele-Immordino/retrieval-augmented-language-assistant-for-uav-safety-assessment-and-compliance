@@ -1,0 +1,36 @@
+#### Configuration file ####
+
+# Path to the folder containing the PDF file
+path_fname: "Documents/"
+
+# Json file name
+fname: "SORA_chunks_cleaned_manual.json"
+
+# Output folder for cleaned text and chunks
+output_dir: "PreProcessing/ProcessedFiles"
+
+# RAG configuration
+rag_mode: "hybrid"            # vector, bm25, or hybrid
+reranker_mode: "colbert"      # colbert or ce
+
+# Retrieval parameters
+top_k: 50                     # Number of retrieved chunks
+ce_keep_k: 10                 # Chunks kept after cross encoder reranking
+
+# LLM generation parameters
+temperature: 0.2
+top_p: 0.9
+max_new_tokens: 56000
+
+# Penalties
+frequency_penalty: 0.0
+presence_penalty: 0.0
+
+# Reasoning configuration
+reasoning_effort: "low"
+
+# Streaming configuration
+stream: true                  # Enable streaming responses in GUI
+
+# UI and runtime settings
+gui_update_interval_ms: 30    # Tkinter update interval
